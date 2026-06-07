@@ -68,10 +68,8 @@
     background: #1c3745;
     color: #fff;
     border: none;
+    border-radius: 8px;
     cursor: pointer;
-    
-  
-    
   }
   .confirm-booking:hover {
     filter: brightness(1.2);

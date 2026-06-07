@@ -1,8 +1,6 @@
 // patientDashboard.js
-import { getDoctors } from './services/doctorServices.js';
-import { openModal } from './components/modals.js';
+import { getDoctors, filterDoctors } from './services/doctorServices.js';
 import { createDoctorCard } from './components/doctorCard.js';
-import { filterDoctors } from './services/doctorServices.js';//call the same function to avoid duplication coz the functionality was same
 import { patientSignup, patientLogin } from './services/patientServices.js';
 
 
@@ -14,7 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
 document.addEventListener("DOMContentLoaded", () => {
   const btn = document.getElementById("patientSignup");
   if (btn) {
-    btn.addEventListener("click", () => openModal("patientSignup"));
+    btn.addEventListener("click", () => window.openModal("patientSignup"));
   }
 });
 
@@ -22,7 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const loginBtn = document.getElementById("patientLogin")
   if (loginBtn) {
     loginBtn.addEventListener("click", () => {
-      openModal("patientLogin")
+      window.openModal("patientLogin")
     })
   }
 })
@@ -94,7 +92,7 @@ window.signupPatient = async function () {
     const { success, message } = await patientSignup(data);
     if (success) {
       alert(message);
-      document.getElementById("modal").style.display = "none";
+      document.getElementById("modal").classList.remove("show");
       window.location.reload();
     }
     else alert(message);

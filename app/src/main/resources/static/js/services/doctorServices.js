@@ -3,7 +3,12 @@ const DOCTOR_API = `${API_BASE_URL}/doctor`;
 
 export async function getDoctors() {
   try {
-    const response = await fetch(DOCTOR_API);
+    const url = `${DOCTOR_API}/getDoctors`;
+    const response = await fetch(url);
+    if (!response.ok) {
+      console.error("getDoctors HTTP", response.status, response.statusText);
+      return [];
+    }
     const data = await response.json();
     return data.doctors || [];
   } catch (error) {

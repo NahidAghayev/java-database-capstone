@@ -2,7 +2,7 @@ import { getDoctors, filterDoctors, saveDoctor } from './services/doctorServices
 import { createDoctorCard } from './components/doctorCard.js';
 
 document.addEventListener("DOMContentLoaded", () => {
-  document.getElementById("addDocBtn")?.addEventListener("click", () => openModal("addDoctor"));
+  document.getElementById("addDocBtn")?.addEventListener("click", () => window.openModal("addDoctor"));
 
   loadDoctorCards();
 
@@ -85,7 +85,7 @@ window.adminAddDoctor = async function () {
 
   if (result.success) {
     alert("Doctor added successfully!");
-    document.getElementById("modal").style.display = "none";
+    document.getElementById("modal").classList.remove("show");
     location.reload();
   } else {
     alert("Failed to add doctor: " + result.message);

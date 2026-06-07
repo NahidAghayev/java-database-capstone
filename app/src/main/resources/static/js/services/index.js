@@ -6,12 +6,12 @@ const DOCTOR_API = `${API_BASE_URL}/doctor`;
 document.addEventListener("DOMContentLoaded", () => {
   const adminLoginBtn = document.getElementById("adminLogin");
   if (adminLoginBtn) {
-    adminLoginBtn.addEventListener("click", () => openModal("adminLogin"));
+    adminLoginBtn.addEventListener("click", () => window.openModal("adminLogin"));
   }
 
   const doctorLoginBtn = document.getElementById("doctorLogin");
   if (doctorLoginBtn) {
-    doctorLoginBtn.addEventListener("click", () => openModal("doctorLogin"));
+    doctorLoginBtn.addEventListener("click", () => window.openModal("doctorLogin"));
   }
 });
 

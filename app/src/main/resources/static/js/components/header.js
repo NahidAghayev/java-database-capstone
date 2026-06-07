@@ -1,29 +1,14 @@
-function getAssetPrefix() {
-  const path = window.location.pathname.replace(/\/$/, '');
-  const segments = path.split('/').filter(p => p.length > 0);
-  const lastSeg = segments[segments.length - 1] || '';
-  const isFile = lastSeg.includes('.');
-
-  if (isFile) {
-    return path.includes('/pages/') ? '../' : './';
-  }
-
-  const dirCount = segments.length;
-  return dirCount === 0 ? './' : '../'.repeat(dirCount);
-}
-
 function renderHeader() {
   const headerDiv = document.getElementById("header");
   if (!headerDiv) return;
 
-  const prefix = getAssetPrefix();
-
   if (window.location.pathname.endsWith("/")) {
     localStorage.removeItem("userRole");
+    localStorage.removeItem("token");
     headerDiv.innerHTML = `
       <header class="header">
         <div class="logo-section">
-          <img src="${prefix}assets/images/logo/logo.png" alt="Hospital CRM Logo" class="logo-img">
+          <img src="/assets/images/logo/logo.png" alt="Hospital CRM Logo" class="logo-img">
           <span class="logo-title">Hospital CMS</span>
         </div>
       </header>`;
@@ -35,7 +20,7 @@ function renderHeader() {
 
   let headerContent = `<header class="header">
     <div class="logo-section">
-      <img src="${prefix}assets/images/logo/logo.png" alt="Hospital CRM Logo" class="logo-img">
+      <img src="/assets/images/logo/logo.png" alt="Hospital CRM Logo" class="logo-img">
       <span class="logo-title">Hospital CMS</span>
     </div>
     <nav>`;
@@ -57,6 +42,7 @@ function renderHeader() {
       <a href="#" onclick="logout()">Logout</a>`;
   } else if (role === "patient") {
     headerContent += `
+      <button class="adminBtn" onclick="window.location.href='/'">Home</button>
       <button id="patientLogin" class="adminBtn">Login</button>
       <button id="patientSignup" class="adminBtn">Sign Up</button>`;
   } else if (role === "loggedPatient") {
@@ -91,8 +77,8 @@ function logout() {
 }
 
 function logoutPatient() {
-  localStorage.removeItem("userRole");
   localStorage.removeItem("token");
+  localStorage.setItem("userRole", "patient");
   window.location.href = "/pages/patientDashboard.html";
 }
 

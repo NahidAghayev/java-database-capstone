@@ -35,7 +35,7 @@ h2 {
   background-attachment: fixed;
 }
 
-button {
+button, .button {
   background-color: #A62B1F;
   color: white;
   border: none;
@@ -45,10 +45,11 @@ button {
   width: 200px;
   cursor: pointer;
   font-size: 16px;
+  transition: background-color 0.3s ease;
 }
 
-button:hover {
-  background-color: #A62B1F;
+button:hover, .button:hover {
+  background-color: #8a241a;
 }
 
 .adminBtn {
@@ -117,10 +118,8 @@ button:hover {
   justify-content: center;
   align-items: center;
   z-index: 1000;
-}
-
-.modal.show {
-  display: flex;
+  opacity: 0;
+  transition: opacity 0.3s ease;
 }
 
 .modal .close {
@@ -130,10 +129,16 @@ button:hover {
   font-size: 28px;
   cursor: pointer;
   color: #333;
+  z-index: 1001;
 }
 
 .modal .close:hover {
   color: #A62B1F;
+}
+
+.modal.show {
+  display: flex;
+  opacity: 1;
 }
 
 #modal-body {
@@ -145,6 +150,12 @@ button:hover {
   width: 90%;
   position: relative;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  transform: scale(0.95);
+  transition: transform 0.3s ease;
+}
+
+.modal.show #modal-body {
+  transform: scale(1);
 }
 
 #modal-body input,

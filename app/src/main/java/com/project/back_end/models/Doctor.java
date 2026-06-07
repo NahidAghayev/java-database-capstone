@@ -3,6 +3,7 @@ package com.project.back_end.models;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.ElementCollection;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -40,7 +41,7 @@ public class Doctor {
     @Pattern(regexp = "^[0-9]{10}$")
     private String phone;
 
-    @ElementCollection
+    @ElementCollection(fetch = FetchType.EAGER)
     private List<String> availableTimes;
 
     public Doctor() {}

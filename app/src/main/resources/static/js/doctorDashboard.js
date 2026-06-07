@@ -2,7 +2,7 @@ import { getAllAppointments } from './services/appointmentRecordService.js';
 import { createPatientRow } from './components/patientRows.js';
 
 const token = localStorage.getItem("token");
-let selectedDate = getFormattedDate(new Date());
+let selectedDate = getFormattedDate(new Date(Date.now() + 86400000)); // default to tomorrow
 let patientName = "null";
 
 document.addEventListener("DOMContentLoaded",() => {
@@ -47,14 +47,14 @@ async function loadAppointments() {
       return;
     }
 
-    data.appointments.forEach(({ id, patient, doctor }) => {
+    data.appointments.forEach(appt => {
       const patientObj = {
-        id: patient.id,
-        name: patient.name,
-        phone: patient.phone,
-        email: patient.email
+        id: appt.patientId,
+        name: appt.patientName,
+        phone: appt.patientPhone,
+        email: appt.patientEmail
       };
-      const row = createPatientRow(patientObj, id, doctor?.id);
+      const row = createPatientRow(patientObj, appt.id, appt.doctorId);
       tbody.appendChild(row);
     });
   } catch (error) {

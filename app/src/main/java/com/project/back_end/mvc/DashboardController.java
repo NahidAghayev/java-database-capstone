@@ -1,6 +1,6 @@
 package com.project.back_end.mvc;
 
-import com.project.back_end.services.Service;
+import com.project.back_end.services.CommonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 public class DashboardController {
 
     @Autowired
-    private Service service;
+    private CommonService service;
 
     @GetMapping("/adminDashboard/{token}")
     public String adminDashboard(@PathVariable String token) {

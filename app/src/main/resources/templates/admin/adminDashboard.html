@@ -10,6 +10,7 @@
   <script th:src="@{/js/util.js}" src="../../static/js/util.js" defer></script>
   <script th:src="@{/js/components/header.js}" src="../../static/js/components/header.js" defer></script>
   <script th:src="@{/js/components/footer.js}" src="../../static/js/components/footer.js" defer></script>
+  <script th:src="@{/js/components/modals.js}" src="../../static/js/components/modals.js" defer></script>
 </head>
 <body onload="renderContent()">
   <div class="container">
@@ -45,11 +46,9 @@
     </div>
   </div>
   <div id="modal" class="modal">
-    <div id="modal-body">
-      <span id="closeModal" class="close">&times;</span>
-    </div>
+    <span id="closeModal" class="close">&times;</span>
+    <div id="modal-body"></div>
   </div>
   <script type="module" th:src="@{/js/adminDashboard.js}" src="../../static/js/adminDashboard.js" defer></script>
-  <script type="module" th:src="@{/js/components/doctorCard.js}" src="../../static/js/components/doctorCard.js" defer></script>
 </body>
 </html>

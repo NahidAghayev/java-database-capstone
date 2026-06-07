@@ -47,7 +47,68 @@
   nav a:hover {
     color: #003e3e;
   }
-  
+
+  .modal-content {
+    background-color: white;
+    margin: auto;
+    padding: 30px;
+    border-radius: 10px;
+    width: 400px;
+    position: relative;
+  }
+
+  .modal-content h2 {
+    font-size: 28px;
+  }
+
+  .close {
+    color: #aaa;
+    position: absolute;
+    right: 20px;
+    top: 15px;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+
+  .close:hover {
+    color: black;
+  }
+
+  .dashboard-btn {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+
+  .input-field {
+    padding: 12px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    width: 100%;
+    appearance: none;
+    background-color: #fff;
+    color: #333;
+    border-radius: 8px;
+    box-sizing: border-box;
+  }
+
+  .input-field:hover {
+    border-color: #015c5d;
+    background-color: #f0fdfd;
+  }
+
+  .input-field:focus {
+    outline: none;
+    border-color: #015c5d;
+    box-shadow: 0 0 5px rgba(1, 92, 93, 0.5);
+  }
 
   /* Responsive behavior */
   @media (max-width: 600px) {
@@ -162,83 +223,10 @@
   }
   
 
-  .modal {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-  }
-  
-  .modal-content {
-    background-color: white;
-    margin: auto;
-    padding: 30px;
-    border-radius: 10px;
-    width: 400px;
-    position: relative;
-  }
-  
-  .modal-content h2{
-    font-size: 32px;
-  }
-
-  .close {
-    color: #aaa;
-    position: absolute;
-    right: 20px;
-    top: 15px;
-    font-size: 28px;
-    font-weight: bold;
-    cursor: pointer;
-  }
-  
-  .close:hover {
-    color: black;
-  }
-
-
-
-  .dashboard-btn{
-    width: 100%;
-  }
-
-  .input-field {
-    padding: 10px;
-    border: 1px solid #ccc;
-    font-size: 16px;
-    margin-top: 10px;
-    margin-bottom: 20px;
-    width: 100%;
-    appearance: none; /* Remove default OS styles */
-    background-color: #fff;
-    color: #333;
-    cursor: pointer;
-    border-radius: 8px;
-  }
-  
-  .input-field:hover {
-    border-color: #015c5d;
-    background-color: #f0fdfd;
-  }
-  
-  .input-field:focus {
-    outline: none;
-    border-color: #015c5d;
-    box-shadow: 0 0 5px rgba(1, 92, 93, 0.5);
-    filter: brightness(1.2);
-  }
-  
   .select-dropdown option {
     font-size: 16px;
     padding: 10px;
   }
-  
 
   #content {
     display: grid;
